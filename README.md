@@ -9,14 +9,39 @@ Why
 * Other excellent libraries such as [pyyolo](https://github.com/digitalbrain79/pyyolo), [Yolo34Py](https://github.com/madhawav/YOLO3-4-Py) did not work for me with CUDA 10.1 and OpenCV 4.1. They all had compiler issues
 
 
-How to use
-===========
+How to use this library
+=======================
 By dead simple, I mean dead simple. 
 
 - This module doesn't bother cloning/building darknet. Build it whichever way you want, and simplxiye make `libdarknet.so` accessible to this module.
-- 
 
-See example.py
+- Modify `cfg/coco.data` `names=` to point to where you have the labels (typically `coco.names`)
+- See [example.py](https://github.com/pliablepixels/simpleYolo/blob/master/example.py)
+
+Sample:
+
+```python
+import simpleyolo.simpleYolo as yolo
+
+configPath='./cfg/yolov3.cfg'
+weightPath='./yolov3.weights'
+metaPath='./cfg/coco.data'
+imagePath='data/dog.jpg'
+
+# initialize
+m = yolo.SimpleYolo(configPath=configPath, 
+                    weightPath=weightPath, 
+                    metaPath=metaPath, 
+                    darknetLib='./libdarknet_gpu.so', 
+                    useGPU=True)
+print ('detecting...')
+detections = m.detect(imagePath)
+print (detections)
+```
+
+
+ 
+
 
 When to use/not to use
 =======================
