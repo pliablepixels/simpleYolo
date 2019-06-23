@@ -6,6 +6,8 @@ Why
 ====
 * OpenCV's DNN module, as of today, does not support NVIDIA GPUs. There is a [GSOC WIP](https://github.com/opencv/opencv/issues/14585) that will change this. Till then, this library is what I needed.
 
+* I used Alexy's fork because he keeps it more updated with required changes (like using `std++-11` etc.).  
+W
 * Other excellent libraries such as [pyyolo](https://github.com/digitalbrain79/pyyolo), [Yolo34Py](https://github.com/madhawav/YOLO3-4-Py) did not work for me with CUDA 10.1 and OpenCV 4.1. They all had compiler issues
 
 
@@ -13,7 +15,7 @@ How to use this library
 =======================
 By dead simple, I mean dead simple. 
 
-- This module doesn't bother cloning/building darknet. Build it whichever way you want, and simplxiye make `libdarknet.so` accessible to this module.
+- This module doesn't bother cloning/building darknet. Build it whichever way you want, and simply make `libdarknet.so` accessible to this module.
 
 - Modify `cfg/coco.data` `names=` to point to where you have the labels (typically `coco.names`)
 - See [example.py](https://github.com/pliablepixels/simpleYolo/blob/master/example.py)
@@ -71,7 +73,11 @@ If you want darknet to use OPENCV (not necessary), also set
 ```
 OPENCV=1 
 ```
-The above will only work if you previously compiled OpenCV 4+ with `OPENCV_GENERATE_PKGCONFIG=ON` and then copied the generated pc file like so: `sudo cp unix-install/opencv4.pc /usr/lib/pkgconfig/`
+Notes:
+
+* You will make to change the Makefile to change `pkg-config --libs opencv` to `pkg-config --libs opencv4` (2 instances). This will not be needed after Alexy fixes [this](https://github.com/AlexeyAB/darknet/issues/3479) issue
+
+* The above will only work if you previously compiled OpenCV 4+ with `OPENCV_GENERATE_PKGCONFIG=ON` and then copied the generated pc file like so: `sudo cp unix-install/opencv4.pc /usr/lib/pkgconfig/`
 
 Pretty, please, how do we build OpenCV 4.1 with CUDA 10.1?
 ----------------------------------------------------------
