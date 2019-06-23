@@ -1,0 +1,4 @@
+classes= 80
+names = /var/lib/zmeventnotification/models/yolov3/yolov3_classes.txt
+eval=coco
+
