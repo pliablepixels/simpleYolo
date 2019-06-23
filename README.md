@@ -66,6 +66,7 @@ cd darknet
 Edit the Makefile, set:
 GPU=1
 CUDNN=1
+LIBSO=1
 ```
 
 If you want darknet to use OPENCV (not necessary), also set
