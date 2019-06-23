@@ -28,7 +28,8 @@ When to use/not to use
 
 
 If you really want to know how to get darknet working with OpenCV 4.1
-========================================================================
+----------------------------------------------------------------------
+
 Assuming you have built/installed CUDA/cuDNN and optionally OpenCV 4.1:
 
 ```
@@ -48,7 +49,7 @@ OPENCV=1
 The above will only work if you previously compiled OpenCV 4+ with `OPENCV_GENERATE_PKGCONFIG=ON` and then copied the generated pc file like so: `sudo cp unix-install/opencv4.pc /usr/lib/pkgconfig/`
 
 Pretty, please, how do we build OpenCV 4.1 with CUDA 10.1?
-==============================================================
+----------------------------------------------------------
 
 Assuming you have built/installed CUDA/cuDNN:
 
@@ -87,6 +88,7 @@ sudo cp unix-install/opencv4.pc /usr/lib/pkgconfig/
 ```
 
 Pretty pretty please, how do I build CUDA 10.1 and nvidia drivers?
-===================================================================
+-------------------------------------------------------------------
+
 Maybe later. 
 
